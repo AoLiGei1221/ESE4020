@@ -1,0 +1,37 @@
+# Do tree ensembles improve dry bean classification over logistic regression?
+
+## Group
+Group Name: 542 Final Project: 
+Group Members: 
+Zihan Lei
+Haodong Yang
+Haoqian Zhang
+
+## Changes since the proposal
+We removed bagged trees from the comparison because they offer limited additional insight alongside random forests. This keeps the five-week project focused on three models—a single decision tree, a random forest, and gradient boosting.
+
+## Data
+Loaded UCI Dry Bean: 13,611 rows, 16 numerical inputs, and seven-class bean variety output. Dropped 68 exact duplicate rows, leaving 13,543; no missing values or conflicting labels for identical inputs. Source: Koklu and Ozkan, https://doi.org/10.24432/C50S4B. 
+Licence: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+
+## Split
+We remove exact duplicates before splitting and reserve a fixed 20% final test set. Each tree method gets 20 random-search candidates  per tuning run. Nested CV separates tuning from assessment; implementation roles are assigned below.Stratified 80/20 split: 10,834 development rows and 2,709 final-test rows. Seed 4020 controls splitting, shuffled CV and random search. Development evaluation uses five outer stratified folds, with five inner stratified folds for tuning. Scaling is fitted only on each training fold. The final test set remains unscored until all modeling choices are frozen.
+
+## Baseline
+Multinomial L2 logistic regression with StandardScaler in a pipeline and the Newton-CG solver. Tune C over {0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000}, maximizing mean inner-CV macro-F1. Five-fold CV on all development data selected C=1000; outer evaluations independently selected C within their training data.
+
+## Result
+Mean outer-fold macro-F1: 0.93663 +/- 0.00167 (one approximate standard error). Five fold scores:0.93218, 0.93324, 0.93800, 0.93895, 0.94075. Sample SD=0.00372. Overlapping trainingfolds make this an approximate SE, not a 95% confidence interval. Every scored row was excluded from fitting and tuning its predictor. Random forest on the same folds scored 0.93249 +/- 0.00248 SE.
+
+## Issues found
+Initial L-BFGS fits produced convergence warnings; switching to Newton-CG resolved them. Correlated features and weak regularization may have slowed L-BFGS convergence, while Newton-CG’s use of curvature helped.
+
+## Next steps
+Before Monday 16 November:
+Zihan maintains the baseline and documents preprocessing
+Haodong completes single-tree and gradient-boosting searches using the same folds and budgets as the random-forest checkpoint
+Haoqian checks prediction alignment, prepares paired-bootstrap test differences for final evaluation, and drafts comparison figures. 
+
+## Code
+
+
