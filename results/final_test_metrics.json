@@ -1,0 +1,434 @@
+{
+  "provenance": {
+    "source_sha256": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+    "split_manifest_sha256": "f21239f65266a2b4eca0aba3b22379b0b2ee5e79645831ff68c3f8990228693c",
+    "seed": 4020,
+    "parameters_from_full_development_search": {
+      "logistic_regression": {
+        "model__C": 1000.0
+      },
+      "random_forest": {
+        "min_samples_leaf": 1,
+        "max_samples": 1.0,
+        "max_features": 1.0,
+        "max_depth": 16
+      },
+      "decision_tree": {
+        "min_samples_leaf": 4,
+        "max_depth": 8,
+        "criterion": "gini"
+      },
+      "gradient_boosting": {
+        "min_samples_leaf": 20,
+        "max_leaf_nodes": 15,
+        "max_iter": 150,
+        "learning_rate": 0.05
+      }
+    },
+    "estimators": {
+      "logistic_regression": "Pipeline(steps=[('scale', StandardScaler()),\n                ('model',\n                 LogisticRegression(C=1000.0, max_iter=2000, random_state=4020,\n                                    solver='newton-cg', tol=1e-07))])",
+      "random_forest": "RandomForestClassifier(max_depth=16, max_features=1.0, max_samples=1.0,\n                       n_estimators=200, n_jobs=1, random_state=4020)",
+      "decision_tree": "DecisionTreeClassifier(max_depth=8, min_samples_leaf=4, random_state=4020)",
+      "gradient_boosting": "HistGradientBoostingClassifier(early_stopping=False, learning_rate=0.05,\n                               max_iter=150, max_leaf_nodes=15,\n                               random_state=4020)"
+    },
+    "features": [
+      "Area",
+      "Perimeter",
+      "MajorAxisLength",
+      "MinorAxisLength",
+      "AspectRation",
+      "Eccentricity",
+      "ConvexArea",
+      "EquivDiameter",
+      "Extent",
+      "Solidity",
+      "roundness",
+      "Compactness",
+      "ShapeFactor1",
+      "ShapeFactor2",
+      "ShapeFactor3",
+      "ShapeFactor4"
+    ],
+    "classes": [
+      "BARBUNYA",
+      "BOMBAY",
+      "CALI",
+      "DERMASON",
+      "HOROZ",
+      "SEKER",
+      "SIRA"
+    ],
+    "versions": {
+      "python": "3.12.4",
+      "numpy": "1.26.4",
+      "pandas": "2.2.2",
+      "scipy": "1.13.1",
+      "scikit-learn": "1.4.2"
+    }
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 4020,
+    "coverage": 0.95,
+    "method": "paired within-true-class percentile, linear empirical quantiles",
+    "interval_scope": "pointwise; conditional on fitted models and observed class counts"
+  },
+  "status": "complete",
+  "final_test_evaluated": true,
+  "development_rows": 10834,
+  "final_test_rows": 2709,
+  "classes": [
+    "BARBUNYA",
+    "BOMBAY",
+    "CALI",
+    "DERMASON",
+    "HOROZ",
+    "SEKER",
+    "SIRA"
+  ],
+  "class_counts": {
+    "BARBUNYA": 265,
+    "BOMBAY": 104,
+    "CALI": 326,
+    "DERMASON": 709,
+    "HOROZ": 372,
+    "SEKER": 406,
+    "SIRA": 527
+  },
+  "predictions_sha256": "cf6c778003fe3458a87a2b93c0a1d2b13a01fbd7723860c41ffd507bda8c72c5",
+  "models": {
+    "logistic_regression": {
+      "macro_f1": 0.942830966623396,
+      "ci_low": 0.9341140401617994,
+      "ci_high": 0.9509307391402491,
+      "per_class_f1": {
+        "BARBUNYA": 0.9227799227799228,
+        "BOMBAY": 1.0,
+        "CALI": 0.9388379204892966,
+        "DERMASON": 0.9330543933054394,
+        "HOROZ": 0.9610738255033557,
+        "SEKER": 0.9627791563275434,
+        "SIRA": 0.8812915479582146
+      },
+      "confusion_matrix": [
+        [
+          239,
+          0,
+          16,
+          0,
+          1,
+          1,
+          8
+        ],
+        [
+          0,
+          104,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          307,
+          0,
+          8,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          669,
+          1,
+          5,
+          34
+        ],
+        [
+          1,
+          0,
+          5,
+          3,
+          358,
+          0,
+          5
+        ],
+        [
+          3,
+          0,
+          0,
+          3,
+          0,
+          388,
+          12
+        ],
+        [
+          3,
+          0,
+          0,
+          50,
+          5,
+          5,
+          464
+        ]
+      ]
+    },
+    "decision_tree": {
+      "macro_f1": 0.9325042023676071,
+      "ci_low": 0.9234631458688761,
+      "ci_high": 0.9412067860097162,
+      "per_class_f1": {
+        "BARBUNYA": 0.9090909090909091,
+        "BOMBAY": 1.0,
+        "CALI": 0.9274924471299094,
+        "DERMASON": 0.9183253260123542,
+        "HOROZ": 0.9592391304347826,
+        "SEKER": 0.9600997506234414,
+        "SIRA": 0.8532818532818532
+      },
+      "confusion_matrix": [
+        [
+          235,
+          0,
+          20,
+          0,
+          2,
+          2,
+          6
+        ],
+        [
+          0,
+          104,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          307,
+          0,
+          4,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          669,
+          0,
+          3,
+          37
+        ],
+        [
+          0,
+          0,
+          8,
+          3,
+          353,
+          0,
+          8
+        ],
+        [
+          3,
+          0,
+          0,
+          5,
+          0,
+          385,
+          13
+        ],
+        [
+          3,
+          0,
+          1,
+          71,
+          5,
+          5,
+          442
+        ]
+      ]
+    },
+    "random_forest": {
+      "macro_f1": 0.9401938893334132,
+      "ci_low": 0.9312897854571667,
+      "ci_high": 0.9486844994617036,
+      "per_class_f1": {
+        "BARBUNYA": 0.9233716475095786,
+        "BOMBAY": 0.9951690821256038,
+        "CALI": 0.9433384379785605,
+        "DERMASON": 0.9316770186335404,
+        "HOROZ": 0.9560585885486018,
+        "SEKER": 0.9577114427860697,
+        "SIRA": 0.874031007751938
+      },
+      "confusion_matrix": [
+        [
+          241,
+          0,
+          14,
+          0,
+          3,
+          1,
+          6
+        ],
+        [
+          1,
+          103,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          0,
+          308,
+          0,
+          7,
+          1,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          675,
+          1,
+          5,
+          28
+        ],
+        [
+          2,
+          0,
+          4,
+          2,
+          359,
+          0,
+          5
+        ],
+        [
+          4,
+          0,
+          1,
+          5,
+          0,
+          385,
+          11
+        ],
+        [
+          3,
+          0,
+          0,
+          58,
+          9,
+          6,
+          451
+        ]
+      ]
+    },
+    "gradient_boosting": {
+      "macro_f1": 0.944923892648297,
+      "ci_low": 0.9364733349152585,
+      "ci_high": 0.9529527072579153,
+      "per_class_f1": {
+        "BARBUNYA": 0.935672514619883,
+        "BOMBAY": 0.9952153110047847,
+        "CALI": 0.9513677811550152,
+        "DERMASON": 0.9262577532736044,
+        "HOROZ": 0.9650537634408602,
+        "SEKER": 0.9666254635352287,
+        "SIRA": 0.874274661508704
+      },
+      "confusion_matrix": [
+        [
+          240,
+          0,
+          14,
+          0,
+          2,
+          2,
+          7
+        ],
+        [
+          0,
+          104,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          313,
+          0,
+          4,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          672,
+          1,
+          5,
+          31
+        ],
+        [
+          1,
+          0,
+          4,
+          4,
+          359,
+          0,
+          4
+        ],
+        [
+          2,
+          0,
+          1,
+          2,
+          0,
+          391,
+          10
+        ],
+        [
+          1,
+          0,
+          0,
+          64,
+          6,
+          4,
+          452
+        ]
+      ]
+    }
+  },
+  "paired_differences": {
+    "decision_tree": {
+      "macro_f1_difference": -0.010326764255788934,
+      "ci_low": -0.017973188825706105,
+      "ci_high": -0.0028757663177835994
+    },
+    "random_forest": {
+      "macro_f1_difference": -0.0026370772899828587,
+      "ci_low": -0.009850071849681504,
+      "ci_high": 0.004371203975745415
+    },
+    "gradient_boosting": {
+      "macro_f1_difference": 0.002092926024900965,
+      "ci_low": -0.004239776115837738,
+      "ci_high": 0.008552614142206311
+    }
+  }
+}
