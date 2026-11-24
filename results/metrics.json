@@ -1,0 +1,513 @@
+{
+  "seed": 4020,
+  "source_url": "https://archive.ics.uci.edu/static/public/602/dry%2Bbean%2Bdataset.zip",
+  "source_sha256": "0a64eff5be87f48c3dbbfc0a12a56c5d5b5167ef8e61cd45d69b3e7c7130c06f",
+  "raw_rows": 13611,
+  "dropped_exact_duplicates": 68,
+  "clean_rows": 13543,
+  "features": [
+    "Area",
+    "Perimeter",
+    "MajorAxisLength",
+    "MinorAxisLength",
+    "AspectRation",
+    "Eccentricity",
+    "ConvexArea",
+    "EquivDiameter",
+    "Extent",
+    "Solidity",
+    "roundness",
+    "Compactness",
+    "ShapeFactor1",
+    "ShapeFactor2",
+    "ShapeFactor3",
+    "ShapeFactor4"
+  ],
+  "missing_values": 0,
+  "development_rows": 10834,
+  "final_test_rows": 2709,
+  "final_test_evaluated": false,
+  "classes": [
+    "BARBUNYA",
+    "BOMBAY",
+    "CALI",
+    "DERMASON",
+    "HOROZ",
+    "SEKER",
+    "SIRA"
+  ],
+  "development_class_counts": {
+    "BARBUNYA": 1057,
+    "BOMBAY": 418,
+    "CALI": 1304,
+    "DERMASON": 2837,
+    "HOROZ": 1488,
+    "SEKER": 1621,
+    "SIRA": 2109
+  },
+  "C_grid": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "models": {
+    "logistic_regression": {
+      "fold_macro_f1": [
+        0.9321840615214781,
+        0.9332441702810642,
+        0.9380044297488482,
+        0.9389471159051185,
+        0.9407518849931468
+      ],
+      "mean_macro_f1": 0.9366263324899311,
+      "sample_sd": 0.0037241832573156252,
+      "approximate_se": 0.0016655053848048658,
+      "pooled_oof_macro_f1": 0.9366403808782012,
+      "confusion_matrix": [
+        [
+          965,
+          1,
+          61,
+          0,
+          3,
+          9,
+          18
+        ],
+        [
+          0,
+          418,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          42,
+          0,
+          1230,
+          0,
+          20,
+          2,
+          10
+        ],
+        [
+          2,
+          0,
+          0,
+          2601,
+          5,
+          43,
+          186
+        ],
+        [
+          4,
+          0,
+          24,
+          12,
+          1407,
+          0,
+          41
+        ],
+        [
+          7,
+          0,
+          0,
+          29,
+          1,
+          1534,
+          50
+        ],
+        [
+          5,
+          0,
+          5,
+          188,
+          24,
+          23,
+          1864
+        ]
+      ],
+      "outer_selected_parameters": [
+        {
+          "model__C": 1000.0
+        },
+        {
+          "model__C": 10000.0
+        },
+        {
+          "model__C": 10000.0
+        },
+        {
+          "model__C": 1000.0
+        },
+        {
+          "model__C": 10000.0
+        }
+      ],
+      "full_development_best_parameters": {
+        "model__C": 1000.0
+      },
+      "full_development_tuning_macro_f1": 0.9368312523342684
+    },
+    "random_forest": {
+      "fold_macro_f1": [
+        0.9254097399496202,
+        0.9275075114422098,
+        0.9365211019987197,
+        0.9366534287527813,
+        0.9363370667555682
+      ],
+      "mean_macro_f1": 0.9324857697797799,
+      "sample_sd": 0.005552905322015359,
+      "approximate_se": 0.0024833347545293403,
+      "pooled_oof_macro_f1": 0.9325069224630099,
+      "confusion_matrix": [
+        [
+          971,
+          1,
+          50,
+          0,
+          8,
+          8,
+          19
+        ],
+        [
+          1,
+          417,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          48,
+          0,
+          1218,
+          0,
+          25,
+          2,
+          11
+        ],
+        [
+          0,
+          0,
+          0,
+          2627,
+          3,
+          48,
+          159
+        ],
+        [
+          7,
+          0,
+          24,
+          13,
+          1403,
+          0,
+          41
+        ],
+        [
+          6,
+          0,
+          0,
+          48,
+          0,
+          1532,
+          35
+        ],
+        [
+          7,
+          0,
+          9,
+          230,
+          35,
+          28,
+          1800
+        ]
+      ],
+      "outer_selected_parameters": [
+        {
+          "min_samples_leaf": 2,
+          "max_samples": 0.7,
+          "max_features": 1.0,
+          "max_depth": 16
+        },
+        {
+          "min_samples_leaf": 2,
+          "max_samples": 0.7,
+          "max_features": 0.5,
+          "max_depth": null
+        },
+        {
+          "min_samples_leaf": 2,
+          "max_samples": 0.7,
+          "max_features": 1.0,
+          "max_depth": 16
+        },
+        {
+          "min_samples_leaf": 2,
+          "max_samples": 0.7,
+          "max_features": 1.0,
+          "max_depth": 16
+        },
+        {
+          "min_samples_leaf": 2,
+          "max_samples": 0.7,
+          "max_features": 1.0,
+          "max_depth": 16
+        }
+      ],
+      "full_development_best_parameters": {
+        "min_samples_leaf": 1,
+        "max_samples": 1.0,
+        "max_features": 1.0,
+        "max_depth": 16
+      },
+      "full_development_tuning_macro_f1": 0.9332755850453646
+    },
+    "decision_tree": {
+      "fold_macro_f1": [
+        0.9117682919177448,
+        0.912091658689511,
+        0.9207980468016875,
+        0.9179933035642283,
+        0.9175792163567523
+      ],
+      "mean_macro_f1": 0.9160461034659846,
+      "sample_sd": 0.0039579127692700245,
+      "approximate_se": 0.001770032400220443,
+      "pooled_oof_macro_f1": 0.9160733516137591,
+      "confusion_matrix": [
+        [
+          938,
+          0,
+          73,
+          1,
+          11,
+          8,
+          26
+        ],
+        [
+          1,
+          417,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          72,
+          0,
+          1188,
+          0,
+          29,
+          2,
+          13
+        ],
+        [
+          0,
+          0,
+          0,
+          2584,
+          4,
+          50,
+          199
+        ],
+        [
+          9,
+          0,
+          32,
+          12,
+          1386,
+          0,
+          49
+        ],
+        [
+          8,
+          0,
+          0,
+          51,
+          0,
+          1502,
+          60
+        ],
+        [
+          12,
+          0,
+          7,
+          260,
+          36,
+          34,
+          1760
+        ]
+      ],
+      "outer_selected_parameters": [
+        {
+          "min_samples_leaf": 8,
+          "max_depth": null,
+          "criterion": "gini"
+        },
+        {
+          "min_samples_leaf": 16,
+          "max_depth": 16,
+          "criterion": "gini"
+        },
+        {
+          "min_samples_leaf": 8,
+          "max_depth": null,
+          "criterion": "gini"
+        },
+        {
+          "min_samples_leaf": 16,
+          "max_depth": 16,
+          "criterion": "gini"
+        },
+        {
+          "min_samples_leaf": 16,
+          "max_depth": 16,
+          "criterion": "gini"
+        }
+      ],
+      "full_development_best_parameters": {
+        "min_samples_leaf": 4,
+        "max_depth": 8,
+        "criterion": "gini"
+      },
+      "full_development_tuning_macro_f1": 0.9187939616806868
+    },
+    "gradient_boosting": {
+      "fold_macro_f1": [
+        0.9228869153909953,
+        0.935438147961779,
+        0.9383725506421465,
+        0.9390708263689345,
+        0.9372124828591831
+      ],
+      "mean_macro_f1": 0.9345961846446077,
+      "sample_sd": 0.006688502518073428,
+      "approximate_se": 0.00299118925961814,
+      "pooled_oof_macro_f1": 0.9346169969793078,
+      "confusion_matrix": [
+        [
+          968,
+          1,
+          53,
+          1,
+          2,
+          9,
+          23
+        ],
+        [
+          0,
+          417,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          37,
+          1,
+          1228,
+          0,
+          28,
+          2,
+          8
+        ],
+        [
+          0,
+          0,
+          0,
+          2620,
+          3,
+          53,
+          161
+        ],
+        [
+          6,
+          0,
+          21,
+          13,
+          1409,
+          0,
+          39
+        ],
+        [
+          10,
+          0,
+          0,
+          47,
+          0,
+          1527,
+          37
+        ],
+        [
+          4,
+          0,
+          9,
+          219,
+          32,
+          22,
+          1823
+        ]
+      ],
+      "outer_selected_parameters": [
+        {
+          "min_samples_leaf": 20,
+          "max_leaf_nodes": 7,
+          "max_iter": 60,
+          "learning_rate": 0.05
+        },
+        {
+          "min_samples_leaf": 20,
+          "max_leaf_nodes": 7,
+          "max_iter": 100,
+          "learning_rate": 0.1
+        },
+        {
+          "min_samples_leaf": 20,
+          "max_leaf_nodes": 31,
+          "max_iter": 150,
+          "learning_rate": 0.1
+        },
+        {
+          "min_samples_leaf": 20,
+          "max_leaf_nodes": 31,
+          "max_iter": 60,
+          "learning_rate": 0.2
+        },
+        {
+          "min_samples_leaf": 20,
+          "max_leaf_nodes": 7,
+          "max_iter": 150,
+          "learning_rate": 0.05
+        }
+      ],
+      "full_development_best_parameters": {
+        "min_samples_leaf": 20,
+        "max_leaf_nodes": 15,
+        "max_iter": 150,
+        "learning_rate": 0.05
+      },
+      "full_development_tuning_macro_f1": 0.9362873930695969
+    }
+  },
+  "error_bar": "Sample SD of five outer-fold macro-F1 scores / sqrt(5); approximate standard error, not a 95% CI; training folds overlap.",
+  "versions": {
+    "python": "3.12.4",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.4.2"
+  }
+}
